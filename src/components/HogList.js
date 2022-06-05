@@ -1,17 +1,18 @@
 import React from 'react';
 import Hog from './Hog';
 
-function HogList({ hogs, sort }) {
+function HogList({ hogs, sort, isChecked }) {
 
-  const hogsToDisplay = hogs.sort(function(a, b) {
-    if (sort === 'Name') {
-      if (a.name < b.name) return -1;
-      if (a.name > b.name) return 1;
-      return 0;
-    } else if (sort === 'Weight'){
-      if (a.weight < b.weight) return -1;
-      if (a.weight > b.weight) return 1;
+  const hogsToDisplay = hogs.filter(hog => {
+    if (isChecked) {
+      return hog.greased === true;
+    } else {
+      return true;
     }
+  }).sort(function(a, b) {
+    if (a[sort] < b[sort]) return -1;
+    if (a[sort] > b[sort]) return 1;
+    return 0;
   }).map(hog => hog)
 
   return (

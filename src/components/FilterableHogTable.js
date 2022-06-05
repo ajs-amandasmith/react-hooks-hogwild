@@ -3,16 +3,21 @@ import FilterBar from './FilterBar';
 import HogList from './HogList';
 
 function FilterableHogTable({ hogs }) {
-  const [sort, setSort] = useState('Name')
+  const [sort, setSort] = useState('');
+  const [isChecked, setIsChecked] = useState(false);
 
   const selectSort = (sortOption) => {
     setSort(sortOption);
   }
 
+  const handleCheck = (checkedValue) => {
+    setIsChecked(checkedValue)
+  }
+
   return (
   <div>
-    <FilterBar sort={sort} selectSort={selectSort}/>
-    <HogList hogs={hogs} sort={sort}/>
+    <FilterBar selectSort={selectSort} handleCheck={handleCheck} />
+    <HogList hogs={hogs} sort={sort} isChecked={isChecked} />
   </div>
 )}
 

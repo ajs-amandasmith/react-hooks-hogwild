@@ -7,6 +7,10 @@ function Hog({ hog }) {
     setDetails(!details)
   }
 
+  const handleHide = (e) => {
+    console.log(e.target)
+  }
+
   const isGreased = hog.greased ? <li>Greased</li> : null;
 
   const showDetails = details ? <ul>
@@ -18,10 +22,14 @@ function Hog({ hog }) {
 
 
   return (
-  <div className="ui eight wide column" onClick={(e) => handleClick(hog)}>
-    <h3>{hog.name}</h3>
-    <img src={hog.image} alt={hog.name} width="150px"></img>
-    {showDetails}
+  <div className="ui cards pigTile eight wide column">
+    <div className="content">
+      <h3 className="ui smallHeader">{hog.name}</h3>
+      <img className="ui img" src={hog.image} alt={hog.name} width="150px" onClick={(e) => handleClick(hog)}></img>
+      <br></br>
+      <button className="ui button" onClick={(e) => handleHide(e)}>Hide Hog</button>
+      {showDetails}
+    </div>
   </div>
   )}
 

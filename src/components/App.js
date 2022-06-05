@@ -26,10 +26,6 @@ export default App;
 // Can you compute it based on any other state or props in your component? If so, it isn’t state.
 
 
-  // Filter the hogs that are greased
-
-  // Sort hogs based on name or weight
-
   // BONUS:
   // Can hide hogs (not delete)
   // Add a form to add new hogs

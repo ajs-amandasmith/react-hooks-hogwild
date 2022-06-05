@@ -1,11 +1,13 @@
 import React from 'react';
 
-function FilterBar({ sort, selectSort }) {
+function FilterBar({ selectSort, handleCheck }) {
   const filterStyle = {
     padding: "10px",
     border: "2px solid",
     margin: "10px"
   }
+
+  // const handleCheck = (e) => console.log(e.target.checked)
 
   return (
   <div style={filterStyle}>
@@ -13,13 +15,13 @@ function FilterBar({ sort, selectSort }) {
       <label>
         Sort:
         <select onChange={(e) => selectSort(e.target.value)}>
-          <option value="Name">Name</option>
-          <option value="Weight">Weight</option>
+          <option value="name">Name</option>
+          <option value="weight">Weight</option>
         </select>
       </label>
       <label>
         Show Only Greased Hogs
-        <input type="checkbox"></input>
+        <input type="checkbox" onChange={(e) => handleCheck(e.target.checked)}></input>
       </label>
     </form>
   </div>
